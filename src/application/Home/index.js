@@ -1,12 +1,21 @@
 //src/appliction/Home/index.js
 import React from 'react';
-import { renderRoutes } from "react-router-config";
 import { Top, Tab, TabItem } from './style';
-import { NavLink } from 'react-router-dom';// 利用 NavLink 组件进行路由跳转
+import { NavLink, Outlet } from 'react-router-dom';// 利用 NavLink 组件进行路由跳转
+
+function TabNavLink(props) {
+    const { to, label } = props
+    return (
+        <NavLink
+            to={to}
+            className={({ isActive }) => isActive ? "selected" : undefined}
+        >
+            <TabItem><span > {label} </span></TabItem>
+        </NavLink>
+    )
+}
 
 function Home(props) {
-    const { route } = props;
-
     return (
         <div>
             <Top>
@@ -15,11 +24,12 @@ function Home(props) {
                 <span className="iconfont search">&#xe62b;</span>
             </Top>
             <Tab>
-                <NavLink to="/recommend" activeClassName="selected"><TabItem><span > 推荐 </span></TabItem></NavLink>
-                <NavLink to="/singers" activeClassName="selected"><TabItem><span > 歌手 </span></TabItem></NavLink>
-                <NavLink to="/rank" activeClassName="selected"><TabItem><span > 排行榜 </span></TabItem></NavLink>
+                <TabNavLink to="recommend" label="推荐" />
+                <TabNavLink to="singers" label="歌手" />
+                <TabNavLink to="rank" label="排行榜" />
             </Tab>
-            {renderRoutes(route.routes)}
+
+            <Outlet />
         </div>
     )
 }

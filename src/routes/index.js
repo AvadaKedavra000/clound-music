@@ -1,34 +1,32 @@
 //routes/index.js
 import React from 'react';
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import Home from '../application/Home';
 import Recommend from '../application/Recommend';
 import Singers from '../application/Singers';
 import Rank from '../application/Rank';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 export default [
     {
         path: "/",
-        component: Home,
-        routes: [
+        element: <Home />,
+        children: [
             {
-                path: "/",
-                exact: true,
-                render: () => (
-                    <Redirect to={"/recommend"} />
-                )
+                index: true,
+                element: <Recommend />
             },
             {
-                path: "/recommend",
-                component: Recommend
+                path: "recommend",
+                element: <Recommend />
             },
             {
-                path: "/singers",
-                component: Singers
+                path: "singers",
+                element: <Singers />
             },
             {
-                path: "/rank",
-                component: Rank
+                path: "rank",
+                element: <Rank />
             }
         ]
     }
