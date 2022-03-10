@@ -1,4 +1,4 @@
-import * as actionTypes from './constants';
+import * as actionTypes from './constants';//常量集合
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
@@ -8,7 +8,7 @@ const defaultState = fromJS({
 })
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.CHANGE_BANNER:
       return state.set('bannerList', action.data);
     case actionTypes.CHANGE_RECOMMEND_LIST:
