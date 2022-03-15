@@ -6,6 +6,7 @@ import Recommend from '../application/Recommend';
 import Singers from '../application/Singers';
 import Rank from '../application/Rank';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Album from '../application/Album';
 
 export default [
     {
@@ -18,7 +19,13 @@ export default [
             },
             {
                 path: "recommend",
-                element: <Recommend />
+                element: <Recommend />,
+                children: [
+                    {
+                        path: ":id",
+                        element: <Album />,
+                    }
+                ]
             },
             {
                 path: "singers",

@@ -100,7 +100,7 @@ function Singers(props) {
     };
 
     const renderSingerList = () => {
-        const list = singerList ? singerList.toJS() : [];
+        const list = singerList ? singerList.toJS() : [];//store中存放的是immutable对象，要转为JS对象
         console.log(props)
         return (
             <List>

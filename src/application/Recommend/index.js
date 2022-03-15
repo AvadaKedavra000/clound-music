@@ -9,6 +9,7 @@ import RecommendList from '../../components/list/';
 import { Content } from './style';
 import Scroll from '../../baseUI/scroll/index';
 import Loading from '../../baseUI/loading/index';
+import { Outlet } from 'react-router-dom';
 
 function Recommend(props) {
 
@@ -40,6 +41,9 @@ function Recommend(props) {
         </div>
       </Scroll>
       {enterLoading ? <Loading /> : null}
+
+      <Outlet />{/*呈现子路由 */}
+
     </Content>
   );
 }
