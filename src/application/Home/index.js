@@ -29,7 +29,7 @@ function Home(props) {
                 <TabNavLink to="rank" label="排行榜" />
             </Tab>
 
-            <Outlet />
+            <Outlet />{/*呈现子路由 */}
         </div>
     )
 }

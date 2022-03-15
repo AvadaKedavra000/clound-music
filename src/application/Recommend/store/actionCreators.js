@@ -22,6 +22,7 @@ export const changeEnterLoading = (data) => ({
 //action creator返回thunk 函数
 //将 thunk 中间件添加到 Redux store 后，可以直接将thunk 函数 直接传递给 store.dispatch
 //http://cn.redux.js.org/tutorials/essentials/part-5-async-logic#thunk-%E5%87%BD%E6%95%B0
+
 export const getBannerList = () => {
   return (dispatch) => {
     getBannerRequest().then(data => {
